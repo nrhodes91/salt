@@ -8,6 +8,7 @@
 from __future__ import absolute_import
 import fnmatch
 import os
+import logging
 
 # Import Salt libs
 import salt.utils.path
@@ -17,6 +18,9 @@ import salt.utils.stringutils
 from tests.support.unit import TestCase
 from tests.support.paths import list_test_mods
 from tests.support.runtime import RUNTIME_VARS
+
+log = logging.getLogger(__name__)
+
 
 EXCLUDED_DIRS = [
     os.path.join('tests', 'pkg'),
@@ -124,6 +128,7 @@ class BadTestModuleNamesTestCase(TestCase):
             'integration.client.test_standard',
             'integration.client.test_syndic',
             'integration.cloud.test_cloud',
+            'integration.cloud.clouds.test_vultr',
             'integration.doc.test_man',
             'integration.externalapi.test_venafiapi',
             'integration.grains.test_custom',
